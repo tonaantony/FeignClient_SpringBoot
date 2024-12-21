@@ -1,0 +1,26 @@
+eureka:
+  client:
+    register-with-eureka: false
+server:
+  port: 8222
+spring:
+  application:
+    name: ApiGateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: EmployeeServices
+          uri: http://localhost:9097
+          predicates:
+            - Path=/employee/**
+        - id: VendorServices
+          uri: http://localhost:9091
+          predicates:
+            - Path=/vendor/**
+management:
+  tracing:
+    sampling:
+      probability: 1.0

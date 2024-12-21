@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: EmployeeServices
+
+  datasource:
+    url: jdbc:h2:mem:testdb  # In-memory H2 database. Change to jdbc:h2:./data/testdb for a file-based H2 database
+    username: sa  # Default H2 username
+    password: password  # Default H2 password
+    driver-class-name: org.h2.Driver  # H2 driver class
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.H2Dialect
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+
+
+server:
+  port: 9097
